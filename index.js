@@ -4,7 +4,7 @@ const pg = require('pg');
 const client = new pg.Client(process.env.DATABASE_URL || 'postgres://localhost/the_acme_notes_db');
 
 app.use(express.json());
-
+app.use(require('morgan')('dev'));
 
 app.get('/api/notes', async(req, res, next)=> {
   try {
